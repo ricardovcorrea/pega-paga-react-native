@@ -7,7 +7,7 @@ const fontSize = width / 20
 
 const styles = StyleSheet.create({
     baseScreenContainer: {
-        paddingHorizontal: width * 0.05
+        padding: 30
     },
     container: {
         flex: 1,

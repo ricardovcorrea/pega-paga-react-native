@@ -2,52 +2,27 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 import theme from '../../general/theme';
 
-const { height, width } = Dimensions.get('window');
-const fontSize = width / 20
-
 const styles = StyleSheet.create({
     baseScreenContainer: {
-        paddingHorizontal: width * 0.05
-    },
-    container: {
-        flex: 1,
-        backgroundColor: theme.background,
-        alignItems: 'center',
-        padding: 15
-    },
-    floatingActionContainer: {
-        backgroundColor: theme.boxBackground,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        height: height,
-        paddingTop: 30
-    },
-    floatingActionMenuDragHandler: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 40,
-        justifyContent: 'center',
+        padding: 30,
         alignItems: 'center'
     },
-    decriptionContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginVertical: 15
+    menuContainer: {
+        marginTop: 50,
+        width: '80%',
+        alignItems: 'center'
     },
-    decriptionText: {
-        color: theme.quaternary,
-        fontFamily: theme.fontFamilySemibold,
-        fontSize: fontSize,
+    menuItem: {
+        fontWeight: '500',
+        fontSize: 25,
+        color: theme.secondary,
+        marginBottom: 20
     },
-    mainButtonListContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        flexWrap: "wrap"
+    menuDivider: {
+        borderBottomColor: 'rgba(255,255,255,0.5)',
+        borderBottomWidth: 1,
+        width: '70%',
+        marginBottom: 20
     }
 });
 

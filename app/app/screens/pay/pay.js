@@ -3,13 +3,11 @@ import { View, TouchableOpacity, Alert, Dimensions, Text } from 'react-native';
 
 import styles from './styles';
 
-import { BaseScreen } from '../../components';
+import { BaseScreen, NavBarLogo } from '../../components';
 
 import { useDispatch } from 'react-redux';
 
 import { RNCamera } from 'react-native-camera';
-
-import theme from '../../general/theme';
 
 import { getUserInfo } from '../../services/userService';
 
@@ -32,10 +30,14 @@ const PayScreen = props => {
       try {
         setCodeReaded(true);
 
-        const [userId, value] = read.data.split(',');
+        const [userId, value] = read.data.split('|');
 
-        if (!userId || !value) {
+        if (!userId) {
           throw "This code is invalid!";
+        }
+
+        if (!value || value == '0') {
+          throw "The transaction must have a value greater than R$00,00";
         }
 
         const userInfo = await getUserInfo(userId);
@@ -57,16 +59,13 @@ const PayScreen = props => {
           }
         ])
       }
-
-
-
     }
   }
 
   return (
     <>
       <BaseScreen scrollEnabled={false} style={styles.baseScreenContainer}>
-        <Text style={styles.readCodeText}>Ler o código voce irá ...</Text>
+        <Text style={styles.readCodeText}>Position the code to read</Text>
         {isCameraActive &&
           <RNCamera style={styles.cameraContainer} onBarCodeRead={onBarCodeRead}>
             <View style={styles.topLeftCorner} />
@@ -82,9 +81,7 @@ const PayScreen = props => {
 }
 
 PayScreen.navigationOptions = ({ navigation }) => ({
-  headerLeft: (
-    <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'white', padding: 10 }}>Pega Paga</Text>
-  )
+  headerLeft: (NavBarLogo)
 });
 
 export default PayScreen;

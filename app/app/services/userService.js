@@ -10,6 +10,12 @@ const fakeUsers = {
         firstName: "Ricardo",
         surName: "Vaz Corrêa",
         photo: "https://st2.depositphotos.com/4967775/11323/v/950/depositphotos_113235752-stock-illustration-avatar-girls-icon-vector-woman.jpg"
+    },
+    40: {
+        id: 40,
+        photo: "http://funny-photo.s3.amazonaws.com/preview/navi_avatar/avatar-grinning-man-face.jpg",
+        firstName: "Guito",
+        surName: "Araujo"
     }
 }
 

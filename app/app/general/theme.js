@@ -1,5 +1,5 @@
 const theme = {
-    primary: 'black',
+    primary: '#21cf63',
     secondary: 'white',
     background: 'white',
     placeholder: 'gray',

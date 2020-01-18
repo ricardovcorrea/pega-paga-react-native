@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRegistry } from 'react-native';
+import { AppRegistry, YellowBox } from 'react-native';
 import App from './app/app';
 
 import { name as appName } from './app.json';
@@ -9,7 +9,7 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 
 import { store, persistor } from './app/redux/store';
 
-
+YellowBox.ignoreWarnings(['-[RNCamera'])
 const ReduxApp = () => (
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>

@@ -5,7 +5,7 @@ import styles from './styles';
 
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-import { BaseScreen, BigMoney } from '../../components';
+import { BaseScreen, BigMoney, NavBarLogo } from '../../components';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -53,14 +53,7 @@ const MainScreen = props => {
 }
 
 MainScreen.navigationOptions = ({ navigation }) => ({
-  headerLeft: (
-    <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'white', padding: 10 }}>Pega Paga</Text>
-  ),
-  headerRight: (
-    <TouchableOpacity onPress={() => { navigation.getParam("logout", () => { })() }}>
-      <MaterialIcons style={styles.rightButton} name={"directions-run"} size={30} color={theme.secondary} />
-    </TouchableOpacity>
-  )
+  headerLeft: (NavBarLogo)
 });
 
 export default MainScreen;

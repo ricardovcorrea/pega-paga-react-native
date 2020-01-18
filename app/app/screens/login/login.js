@@ -83,7 +83,7 @@ const LoginScreen = props => {
 
       <View style={styles.container}>
 
-        <Text style={styles.title}>Faça login para continuar</Text>
+        <Text style={styles.title}>Login to continue</Text>
 
         <View style={styles.box}>
 
@@ -94,8 +94,9 @@ const LoginScreen = props => {
               value={email}
               returnKeyType={'next'}
               onSubmitEditing={() => { passwordField.focus() }}
-              placeholder="usuario@email.com.br"
-              isInvalid={emailError != ''}              
+              placeholder="user@email.com"
+              isInvalid={emailError != ''}      
+              hilightOnFocus={true}        
             />
           </View>
 
@@ -111,10 +112,11 @@ const LoginScreen = props => {
               placeholder="********"
               isInvalid={passwordError != ''}
               autoCapitalize={"words"}
+              hilightOnFocus={true}
             />
           </View>
 
-          <Button style={styles.btnSave} onPress={() => { loginButtonHandler() }} title={'ENTRAR'} isLoading={isLoading} />
+          <Button style={styles.btnSave} onPress={() => { loginButtonHandler() }} title={'ENTER'} isLoading={isLoading} />
 
         </View>
 

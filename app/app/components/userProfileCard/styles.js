@@ -4,6 +4,7 @@ import theme from '../../general/theme';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: `rgba(0,0,0,0.3)`,
+    width: '100%',
     flexDirection: `row`,
     borderRadius: 10,
     shadowColor: "#000",
@@ -13,7 +14,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.34,
     shadowRadius: 6.27,
-
     elevation: 10,
   },
   image: {

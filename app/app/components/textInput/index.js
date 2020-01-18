@@ -24,8 +24,9 @@ const TextField = React.forwardRef((props, ref) => {
       case "car-plate": {
         return MaskService.toMask('custom', value.toUpperCase(), { mask: 'AAA-9S99' });
       }
-      case "cpf": {
-        return MaskService.toMask('cpf', value);
+      case "cpf":
+      case "money": {
+        return MaskService.toMask(props.mask, value);
       }
     }
   }
@@ -45,11 +46,11 @@ const TextField = React.forwardRef((props, ref) => {
         style={[
           styles.inputField,
           props.style,
-          isOnFocus ? { borderColor: theme.primary } : { borderColor: '#D1D1D1' },
+          props.hilightOnFocus && isOnFocus ? { borderColor: theme.primary } : { borderColor: '#D1D1D1' },
           !!props.isInvalid ? { borderColor: theme.fieldError } : {},
         ]}
         placeholder={props.placeholder || ""}
-        placeholderTextColor={theme.placeholder}
+        placeholderTextColor={props.placeholderTextColor || theme.placeholder}
         multiline={!!props.multiline}
         autoCorrect={!!props.autoCorrect}
         numberOfLines={props.numberOfLines || 1}
@@ -61,6 +62,7 @@ const TextField = React.forwardRef((props, ref) => {
         value={props.mask ? getMaskedValue(props.value) : props.value}
         onFocus={() => { setIsOnFocus(true) }}
         onBlur={() => { setIsOnFocus(false) }}
+        textAlign={props.textAlign}
       >
       </TextInput>
       {props.isInvalid && !props.hideValidationIcon && (

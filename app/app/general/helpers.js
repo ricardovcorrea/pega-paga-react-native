@@ -44,3 +44,10 @@ export const isIPhoneX = () => {
   const windowDimentions = Dimensions.get('window');
   return Platform.OS == 'ios' && (windowDimentions.height >= 812);
 };
+
+export const formatAsCurrency = (value) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(value);
+}
