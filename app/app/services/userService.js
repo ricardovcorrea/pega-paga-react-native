@@ -4,21 +4,28 @@ import { endpoints } from '../general/constants';
 import { store } from '../redux/store';
 import { loginSuccessAction, loginFailAction } from '../redux/generalReducer';
 
-export const login = async (email, password) => {
+const fakeUsers = {
+    30: {
+        id: 30,
+        firstName: "Ricardo",
+        surName: "Vaz Corrêa",
+        photo: "https://st2.depositphotos.com/4967775/11323/v/950/depositphotos_113235752-stock-illustration-avatar-girls-icon-vector-woman.jpg"
+    }
+}
+
+export const getUserInfo = async (userId) => {
 
     const { general } = store.getState();
     const { baseUrl } = general;
 
-    const loginRequestUrl = `${baseUrl}${endpoints.login}`;
-    const loginRequest = {
-        EMAIL: email,
-        PASSWORD: password
+    const getUserInfoRequestUrl = `${baseUrl}${endpoints.userInfo}`;
+    const getUserInfoRequest = {
+        userId: userId
     }
 
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve();
-            store.dispatch(loginSuccessAction("fakeAccessToken", { id: 40, photo: "http://funny-photo.s3.amazonaws.com/preview/navi_avatar/avatar-grinning-man-face.jpg", firstName: "Guito", surName: "Araujo", balance: "202942" }));
+            resolve(fakeUsers[userId]);
         }, 300);
     });
 

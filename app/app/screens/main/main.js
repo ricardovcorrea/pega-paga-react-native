@@ -5,16 +5,17 @@ import styles from './styles';
 
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-import { BaseScreen } from '../../components';
+import { BaseScreen, BigMoney } from '../../components';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { logoutAction } from '../../redux/generalReducer';
 
 import theme from '../../general/theme';
 
-const Main = props => {
+const MainScreen = props => {
   const dispatch = useDispatch();
+  const loggedUser = useSelector(state => state.general.user);
 
   useEffect(() => {
     props.navigation.setParams({ logout });
@@ -44,13 +45,17 @@ const Main = props => {
   return (
     <>
       <BaseScreen style={styles.baseScreenContainer}>
+        <BigMoney title={'Balance'} value={loggedUser.balance} />
       </BaseScreen>
     </>
   );
 
 }
 
-Main.navigationOptions = ({ navigation }) => ({
+MainScreen.navigationOptions = ({ navigation }) => ({
+  headerLeft: (
+    <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'white', padding: 10 }}>Pega Paga</Text>
+  ),
   headerRight: (
     <TouchableOpacity onPress={() => { navigation.getParam("logout", () => { })() }}>
       <MaterialIcons style={styles.rightButton} name={"directions-run"} size={30} color={theme.secondary} />
@@ -58,5 +63,5 @@ Main.navigationOptions = ({ navigation }) => ({
   )
 });
 
-export default Main;
+export default MainScreen;
 

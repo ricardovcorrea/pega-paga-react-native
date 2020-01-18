@@ -50,7 +50,8 @@ export function logoutAction(error) {
 
 //Reducer
 const initialState = {
-    authToken: null
+    authToken: null,
+    user: {}
 };
 
 export const generalReducer = (state = initialState, action) => {
@@ -66,7 +67,7 @@ export const generalReducer = (state = initialState, action) => {
             return {
                 ...state,
                 authToken: null,
-                user: null
+                user: initialState.user
             }
         default:
             return state;

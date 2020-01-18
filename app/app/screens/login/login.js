@@ -95,7 +95,7 @@ const LoginScreen = props => {
               returnKeyType={'next'}
               onSubmitEditing={() => { passwordField.focus() }}
               placeholder="usuario@email.com.br"
-              isInvalid={emailError != ''}
+              isInvalid={emailError != ''}              
             />
           </View>
 

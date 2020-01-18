@@ -3,11 +3,14 @@ import React from 'react';
 import { Text, Dimensions } from 'react-native';
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { Loading, Login, Main } from './screens';
+import { Loading, Login, MainScreen, PayScreen, ReceiveScreen, MenuScreen, ConfirmPaymentScreen } from './screens';
 
 import theme from './general/theme';
+
+import { TabBar } from './components';
 
 const { width } = Dimensions.get('window');
 const fontSize = width / 14.4
@@ -25,28 +28,60 @@ const defaultNavigationOptions = {
     },
     headerLeftContainerStyle: {
         paddingLeft: 10
-    },
-    headerLeft: (
-        <Text style={{ fontSize: fontSize, fontWeight: 'bold', color: 'white', padding: 10 }}>Pega Paga</Text>
-    )
+    }
 };
 
 const mainStack = createStackNavigator(
     {
-        Main: { screen: Main }
+        Main: { screen: MainScreen }
     },
     {
         defaultNavigationOptions
     }
 );
 
-const loggedStack = createStackNavigator(
+const payStack = createStackNavigator(
     {
-        Main: { screen: mainStack }
+        Pay: { screen: PayScreen },
+        ConfirmPayment: { screen: ConfirmPaymentScreen }
+    },
+    {
+        defaultNavigationOptions
+    }
+);
+
+const receiveStack = createStackNavigator(
+    {
+        Receive: { screen: ReceiveScreen }
+    },
+    {
+        defaultNavigationOptions
+    }
+);
+
+const menuStack = createStackNavigator(
+    {
+        Menu: { screen: MenuScreen }
+    },
+    {
+        defaultNavigationOptions
+    }
+);
+
+const loggedStack = createBottomTabNavigator(
+    {
+        Main: { screen: mainStack },
+        Pay: { screen: payStack },
+        Receive: { screen: receiveStack },
+        Menu: { screen: menuStack }
     },
     {
         mode: 'modal',
-        headerMode: 'none',
+        tabBarComponent: TabBar,
+        tabBarOptions: {
+            activeTintColor: theme.primary,
+            inactiveTintColor: '#bdbdd1',
+        }
     }
 );
 

@@ -15,7 +15,7 @@ const BaseScreen = props => {
   return (
     <>
       <LinearGradient colors={[theme.primary, theme.primary, theme.gradientEnd]} style={styles.gradientBackground}></LinearGradient>
-      <ScrollView keyboardShouldPersistTaps={'handled'} contentContainerStyle={[styles.container, props.style]}>
+      <ScrollView scrollEnabled={props.scrollEnabled} keyboardShouldPersistTaps={'handled'} contentContainerStyle={[styles.container, props.style]}>
         {props.children}
       </ScrollView>
     </>
