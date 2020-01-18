@@ -10,18 +10,20 @@ const styles = StyleSheet.create({
     baseScreenContainer: {
         paddingHorizontal: width * 0.05,
         paddingTop: 50,
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 50
     },
     screenTitle: {
         fontSize: 25,
         color: theme.secondary,
-        marginBottom: 30
+        marginBottom: 10
     },
     currencyFieldContainer: {
         paddingBottom: 10,
         borderBottomWidth: 3,
         borderBottomColor: theme.secondary,
-        marginBottom: 50, width: '100%'
+        marginBottom: 30, 
+        width: '100%'
     },
     currencyFieldText: {
         borderWidth: 0,

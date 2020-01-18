@@ -45,7 +45,7 @@ const ReceiveScreen = props => {
 
   return (
     <>
-      <BaseScreen style={styles.baseScreenContainer}>
+      <BaseScreen scrollEnabled={true} style={styles.baseScreenContainer}>
         <Text style={styles.screenTitle}>Enter the amount to receive</Text>
         <TextInput
           onChangeText={(text) => { setAmountToReceive(text); setQrCodeDebounced(text) }}

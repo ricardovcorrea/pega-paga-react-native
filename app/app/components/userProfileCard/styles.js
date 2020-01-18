@@ -7,14 +7,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: `row`,
     borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
-    elevation: 10,
   },
   image: {
     width: 100,

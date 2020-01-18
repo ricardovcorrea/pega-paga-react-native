@@ -5,9 +5,7 @@ const styles = StyleSheet.create({
   inputField: {
     fontSize: 16,
     color: 'black',
-    height: 50,
     width: '100%',
-    // maxWidth: 342,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#D1D1D1',
