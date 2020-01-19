@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import {View, Text, Alert} from 'react-native';
 import {useDispatch} from 'react-redux';
 
-import {TextInput, Button, BaseScreen} from '../../components';
-import {validateEmail} from '../../general/helpers';
-import {loginAction} from '../../redux/generalReducer';
-import {login} from '../../services/authentication';
+import {TextInput, Button, BaseScreen} from '~/components/index';
+import {validateEmail} from '~/general/helpers';
+import {loginAction} from '~/redux/generalReducer';
+import {login} from '~/services/authentication';
+
 import styles from './styles';
 
 const LoginScreen = props => {

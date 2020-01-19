@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
 import React, {useEffect} from 'react';
 import {Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {BaseScreen, BigMoney, NavBarLogo} from '../../components';
-import {logoutAction} from '../../redux/generalReducer';
+import {BaseScreen, BigMoney, NavBarLogo} from '~/components/index';
+import {logoutAction} from '~/redux/generalReducer';
+
 import styles from './styles';
 
 const MainScreen = props => {

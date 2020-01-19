@@ -2,8 +2,9 @@ import React from 'react';
 import {View, TouchableOpacity, Alert, Text, Linking} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {BaseScreen, UserProfileCard, NavBarLogo} from '../../components';
-import {logoutAction} from '../../redux/generalReducer';
+import {BaseScreen, UserProfileCard, NavBarLogo} from '~/components/index';
+import {logoutAction} from '~/redux/generalReducer';
+
 import styles from './styles';
 
 const MenuScreen = props => {

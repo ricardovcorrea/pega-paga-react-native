@@ -2,8 +2,9 @@ import React, {useEffect} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
 
-import {BaseScreen} from '../../components';
-import theme from '../../general/theme';
+import {BaseScreen} from '~/components/index';
+import theme from '~/general/theme';
+
 import styles from './styles';
 
 const Loading = props => {

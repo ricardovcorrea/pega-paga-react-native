@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-import theme from '../../general/theme';
+import theme from '~/general/theme';
 
 const {height, width} = Dimensions.get('window');
 const fontSize = width / 20;
