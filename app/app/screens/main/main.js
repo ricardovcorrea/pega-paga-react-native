@@ -35,11 +35,9 @@ const MainScreen = props => {
   };
 
   return (
-    <>
-      <BaseScreen style={styles.baseScreenContainer}>
-        <BigMoney title={'Balance'} value={loggedUser.balance} />
-      </BaseScreen>
-    </>
+    <BaseScreen style={styles.baseScreenContainer}>
+      <BigMoney title={'Balance'} value={loggedUser.balance} />
+    </BaseScreen>
   );
 };
 

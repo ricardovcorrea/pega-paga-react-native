@@ -36,24 +36,22 @@ const ConfirmPaymentScreen = props => {
   };
 
   return (
-    <>
-      <BaseScreen scrollEnabled={false} style={styles.container}>
-        <UserProfileCard user={userInfo} style={styles.userInfoCard} />
+    <BaseScreen scrollEnabled={false} style={styles.container}>
+      <UserProfileCard user={userInfo} style={styles.userInfoCard} />
 
-        <BigMoney title={'Amount to Pay'} value={amountToPay} />
+      <BigMoney title={'Amount to Pay'} value={amountToPay} />
 
-        <TouchableOpacity
-          onPress={confirmPayment}
-          style={styles.confirmPaymentButton}>
-          {!isProcessingPayment && (
-            <Text style={styles.confirmPaymentButtonText}>Confirm payment</Text>
-          )}
-          {isProcessingPayment && (
-            <ActivityIndicator size="small" color={theme.primary} />
-          )}
-        </TouchableOpacity>
-      </BaseScreen>
-    </>
+      <TouchableOpacity
+        onPress={confirmPayment}
+        style={styles.confirmPaymentButton}>
+        {!isProcessingPayment && (
+          <Text style={styles.confirmPaymentButtonText}>Confirm payment</Text>
+        )}
+        {isProcessingPayment && (
+          <ActivityIndicator size="small" color={theme.primary} />
+        )}
+      </TouchableOpacity>
+    </BaseScreen>
   );
 };
 

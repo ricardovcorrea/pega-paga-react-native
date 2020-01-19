@@ -59,21 +59,17 @@ const PayScreen = props => {
   };
 
   return (
-    <>
-      <BaseScreen scrollEnabled={false} style={styles.baseScreenContainer}>
-        <Text style={styles.readCodeText}>Position the code to read</Text>
-        {isCameraActive && (
-          <RNCamera
-            style={styles.cameraContainer}
-            onBarCodeRead={onBarCodeRead}>
-            <View style={styles.topLeftCorner} />
-            <View style={styles.topRightCorner} />
-            <View style={styles.bottomLeftCorner} />
-            <View style={styles.bottomRightCorner} />
-          </RNCamera>
-        )}
-      </BaseScreen>
-    </>
+    <BaseScreen scrollEnabled={false} style={styles.baseScreenContainer}>
+      <Text style={styles.readCodeText}>Position the code to read</Text>
+      {isCameraActive && (
+        <RNCamera style={styles.cameraContainer} onBarCodeRead={onBarCodeRead}>
+          <View style={styles.topLeftCorner} />
+          <View style={styles.topRightCorner} />
+          <View style={styles.bottomLeftCorner} />
+          <View style={styles.bottomRightCorner} />
+        </RNCamera>
+      )}
+    </BaseScreen>
   );
 };
 
