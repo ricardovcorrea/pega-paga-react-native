@@ -44,7 +44,7 @@ const TextField = React.forwardRef((props, ref) => {
           props.hilightOnFocus && isOnFocus
             ? {borderColor: theme.primary}
             : {borderColor: theme.placeholder},
-          props.isInvalid ? {borderColor: theme.fieldError} : {},
+          props.isInvalid ? {borderColor: theme.error} : {},
         ]}
         placeholder={props.placeholder || ''}
         placeholderTextColor={props.placeholderTextColor || theme.placeholder}

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     borderRadius: 25 / 2,
     backgroundColor: theme.error,
     position: 'absolute',
-    top: 10,
+    top: 22,
     right: 15,
     alignItems: 'center',
     justifyContent: 'center',

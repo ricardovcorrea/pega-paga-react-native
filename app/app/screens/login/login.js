@@ -91,6 +91,7 @@ const LoginScreen = props => {
               placeholder="user@email.com"
               isInvalid={emailError !== ''}
               hilightOnFocus={true}
+              style={styles.field}
             />
           </View>
 
@@ -114,6 +115,7 @@ const LoginScreen = props => {
               isInvalid={passwordError !== ''}
               autoCapitalize={'words'}
               hilightOnFocus={true}
+              style={styles.field}
             />
           </View>
 
