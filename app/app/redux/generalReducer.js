@@ -6,71 +6,69 @@ export const LOGOUT = 'GENERAL_LOGOUT';
 
 //Actions
 export function loginAction(email, password) {
-    return async (dispatch) => {
-        dispatch({
-            type: LOGIN,
-            payload: {
-                email,
-                password
-            }
-        });
-    };
+  return async dispatch => {
+    dispatch({
+      type: LOGIN,
+      payload: {
+        email,
+        password,
+      },
+    });
+  };
 }
 
 export function loginSuccessAction(authToken, userData) {
-    return async (dispatch) => {
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: {
-                authToken,
-                userData
-            }
-        });
-    };
+  return async dispatch => {
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: {
+        authToken,
+        userData,
+      },
+    });
+  };
 }
 
 export function loginFailAction(error) {
-    return async (dispatch) => {
-        dispatch({
-            type: LOGIN_FAIL,
-            payload: {
-                error
-            }
-        });
-    };
+  return async dispatch => {
+    dispatch({
+      type: LOGIN_FAIL,
+      payload: {
+        error,
+      },
+    });
+  };
 }
 
 export function logoutAction(error) {
-    return async (dispatch) => {
-        dispatch({
-            type: LOGOUT
-        });
-    };
+  return async dispatch => {
+    dispatch({
+      type: LOGOUT,
+    });
+  };
 }
 
 //Reducer
 const initialState = {
-    authToken: null,
-    user: {}
+  authToken: null,
+  user: {},
 };
 
 export const generalReducer = (state = initialState, action) => {
-
-    switch (action.type) {
-        case LOGIN_SUCCESS:
-            return {
-                ...state,
-                authToken: action.payload.authToken,
-                user: action.payload.userData
-            }
-        case LOGOUT:
-            return {
-                ...state,
-                authToken: null,
-                user: initialState.user
-            }
-        default:
-            return state;
-    }
-}
-
+  switch (action.type) {
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        authToken: action.payload.authToken,
+        user: action.payload.userData,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        authToken: null,
+        user: initialState.user,
+      };
+    default:
+      return state;
+  }
+};

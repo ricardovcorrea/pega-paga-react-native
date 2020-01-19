@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
+
 import theme from '../../general/theme';
 
 const styles = StyleSheet.create({
@@ -21,20 +22,20 @@ const styles = StyleSheet.create({
     top: 10,
     right: 15,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   textAlert: {
     fontWeight: 'bold',
     fontSize: 23,
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
   },
   errorText: {
-    position: "absolute",
+    position: 'absolute',
     right: 50,
     top: 15,
     color: theme.error,
-  }
+  },
 });
 
 export default styles;

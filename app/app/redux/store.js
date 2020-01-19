@@ -1,22 +1,18 @@
-import Reactotron from '../../ReactotronConfig';
-
 import AsyncStorage from '@react-native-community/async-storage';
-
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
+import {persistStore, persistReducer} from 'redux-persist';
 import thunk from 'redux-thunk';
 
-import { generalReducer } from './generalReducer';
-
-import { persistStore, persistReducer } from 'redux-persist';
+import Reactotron from '../../ReactotronConfig';
+import {generalReducer} from './generalReducer';
 
 const persistConfig = {
   key: 'pega-paga-app',
-  storage: AsyncStorage
+  storage: AsyncStorage,
 };
 
 const rootReducer = combineReducers({
-  general: generalReducer
+  general: generalReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -25,8 +21,12 @@ const middlewares = [thunk];
 
 const enhancers = [
   applyMiddleware(...middlewares),
-  Reactotron.createEnhancer()
+  Reactotron.createEnhancer(),
 ];
 
-export const store = createStore(persistedReducer, undefined, compose(...enhancers));
+export const store = createStore(
+  persistedReducer,
+  undefined,
+  compose(...enhancers),
+);
 export const persistor = persistStore(store);
