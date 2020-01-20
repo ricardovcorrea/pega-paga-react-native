@@ -1,0 +1,57 @@
+﻿<Properties StartupConfiguration="{33C5B131-4B50-4398-ADA3-44DDFE24CB9A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+    <Files>
+      <File FileName="Startup.cs" Line="19" Column="6" />
+      <File FileName="Program.cs" Line="20" Column="17" />
+      <File FileName="appsettings.Production.json" Line="1" Column="1" />
+      <File FileName="appsettings.json" Line="1" Column="2" />
+      <File FileName="Properties/launchSettings.json" Line="23" Column="29" />
+      <File FileName="appsettings.Development.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="api" expanded="True">
+            <Node name="api" expanded="True">
+              <Node name="Configurations" expanded="True" />
+              <Node name="Controllers" expanded="True" selected="True">
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Domain" expanded="True">
+                <Node name="Interfaces" expanded="True">
+                  <Node name="General" expanded="True" />
+                  <Node name="User" expanded="True" />
+                </Node>
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="DTO" expanded="True">
+                <Node name="General" expanded="True" />
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Enumerators" expanded="True" />
+              <Node name="Extensions" expanded="True">
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Infrastructure" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Files" expanded="True" />
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
