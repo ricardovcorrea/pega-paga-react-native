@@ -7,7 +7,7 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Production' ">
     <StartAction>Project</StartAction>
     <LaunchUrl>healthcheck</LaunchUrl>
-    <ApplicationURL>https://localhost:5001;http://localhost:5000</ApplicationURL>
+    <ApplicationURL>http://localhost:5000</ApplicationURL>
   </PropertyGroup>
   <ItemGroup>
   </ItemGroup>
@@ -20,6 +20,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
     <PackageReference Include="AWSSDK.S3" Version="3.3.109" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="Ngrok.AspNetCore" Version="1.0.6" />
   </ItemGroup>
 
   <ItemGroup>

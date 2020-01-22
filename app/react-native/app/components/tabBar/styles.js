@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {isIPhoneX} from '../../general/helpers';
+import {isIPhoneX} from '~/general/helpers';
 
 const styles = StyleSheet.create({
   container: {

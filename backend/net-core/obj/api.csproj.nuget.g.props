@@ -13,7 +13,6 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">/Users/ricardovazcorrea/.nuget/packages/newtonsoft.json/10.0.3</PkgNewtonsoft_Json>
     <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">/Users/ricardovazcorrea/.nuget/packages/awssdk.core/3.3.104</PkgAWSSDK_Core>
     <PkgAWSSDK_S3 Condition=" '$(PkgAWSSDK_S3)' == '' ">/Users/ricardovazcorrea/.nuget/packages/awssdk.s3/3.3.109</PkgAWSSDK_S3>
   </PropertyGroup>

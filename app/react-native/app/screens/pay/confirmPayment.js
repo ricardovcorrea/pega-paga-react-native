@@ -2,8 +2,8 @@
 import React, {useState, useEffect} from 'react';
 import {TouchableOpacity, ActivityIndicator, Text} from 'react-native';
 
-import {BaseScreen, UserProfileCard, BigMoney} from '../../components';
-import theme from '../../general/theme';
+import {BaseScreen, UserProfileCard, BigMoney} from '~/components';
+import theme from '~/general/theme';
 import styles from './styles';
 
 const ConfirmPaymentScreen = props => {

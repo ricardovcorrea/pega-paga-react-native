@@ -2,7 +2,7 @@ import React from 'react';
 import {View, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import theme from '../../general/theme';
+import theme from '~/general/theme';
 import styles from './styles';
 
 const MainButton = props => {

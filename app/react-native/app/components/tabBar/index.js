@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import theme from '../../general/theme';
+import theme from '~/general/theme';
 import styles from './styles';
 
 const TabBar = props => {

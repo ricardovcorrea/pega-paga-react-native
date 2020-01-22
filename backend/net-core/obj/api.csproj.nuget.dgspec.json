@@ -17,7 +17,7 @@
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/ricardovazcorrea/.nuget/NuGet/NuGet.Config"
+          "/Users/ricardovazcorrea/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -58,6 +58,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.9.3, )"
+            },
+            "Ngrok.AspNetCore": {
+              "target": "Package",
+              "version": "[1.0.6, )"
             },
             "System.Drawing.Common": {
               "target": "Package",

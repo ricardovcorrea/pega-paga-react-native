@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {TextInput, View, Text} from 'react-native';
 import {MaskService} from 'react-native-masked-text';
 
-import theme from '../../general/theme';
+import theme from '~/general/theme';
 import styles from './styles';
 
 const TextField = React.forwardRef((props, ref) => {

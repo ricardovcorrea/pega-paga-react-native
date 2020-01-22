@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-import {formatAsCurrency} from '../../general/helpers';
+import {formatAsCurrency} from '~/general/helpers';
 import styles from './styles';
 
 const BigMoney = ({title, value}) => {

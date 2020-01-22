@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {View, Alert, Text} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 
-import {BaseScreen, NavBarLogo} from '../../components';
-import {getUserInfo} from '../../services/userService';
+import {BaseScreen, NavBarLogo} from '~/components';
+import {getUserInfo} from '~/services/userService';
 import styles from './styles';
 
 const PayScreen = props => {

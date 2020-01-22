@@ -12,8 +12,8 @@ import styles from './styles';
 const LoginScreen = props => {
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState('admin@pegapaga.com.br');
-  const [password, setPassword] = useState('123456');
+  const [email, setEmail] = useState('user@gmail.com');
+  const [password, setPassword] = useState('321');
 
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -59,11 +59,10 @@ const LoginScreen = props => {
       props.navigation.navigate('Logged');
     } catch (error) {
       setIsLoading(false);
-
       let errorMessage = 'Ocorreu uma falha inesperada, tente novamente!';
 
-      if (error && error.message && error.message.indexOf('401') > -1) {
-        errorMessage = 'Credenciais inválidas!';
+      if (error && error.message) {
+        errorMessage = error.message;
       }
 
       Alert.alert('Atenção!', errorMessage);

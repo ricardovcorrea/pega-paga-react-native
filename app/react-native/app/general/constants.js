@@ -1,4 +1,6 @@
+const baseUrl = 'https://3c109ff1.ngrok.io';
+
 export const endpoints = {
-  login: '/api/login',
-  userInfo: '/api/userInfo',
+  login: `${baseUrl}/user/login`,
+  userInfo: `${baseUrl}/user/userInfo`,
 };

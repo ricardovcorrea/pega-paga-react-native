@@ -1,22 +1,32 @@
 ﻿<Properties StartupConfiguration="{33C5B131-4B50-4398-ADA3-44DDFE24CB9A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Startup.cs" Line="19" Column="6" />
-      <File FileName="Program.cs" Line="20" Column="17" />
-      <File FileName="appsettings.Production.json" Line="1" Column="1" />
-      <File FileName="appsettings.json" Line="1" Column="2" />
-      <File FileName="Properties/launchSettings.json" Line="23" Column="29" />
-      <File FileName="appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="15" Column="23" />
+      <File FileName="Program.cs" Line="16" Column="13" />
+      <File FileName="appsettings.Production.json" />
+      <File FileName="appsettings.json" Line="2" Column="1" />
+      <File FileName="Properties/launchSettings.json" Line="39" Column="2" />
+      <File FileName="appsettings.Development.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="api" expanded="True">
             <Node name="api" expanded="True">
-              <Node name="Configurations" expanded="True" />
-              <Node name="Controllers" expanded="True" selected="True">
-                <Node name="User" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True">
+                  <Node name="Ngrok.AspNetCore" expanded="True">
+                    <Node name="Microsoft.AspNetCore.Hosting.Abstractions" expanded="True">
+                      <Node name="Microsoft.Extensions.Hosting.Abstractions" expanded="True" />
+                    </Node>
+                    <Node name="Microsoft.Extensions.Http" expanded="True">
+                      <Node name="Microsoft.Extensions.Options" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
               </Node>
+              <Node name="Configurations" expanded="True" />
+              <Node name="Controllers" expanded="True" />
               <Node name="Domain" expanded="True">
                 <Node name="Interfaces" expanded="True">
                   <Node name="General" expanded="True" />
@@ -38,12 +48,10 @@
                 <Node name="User" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
