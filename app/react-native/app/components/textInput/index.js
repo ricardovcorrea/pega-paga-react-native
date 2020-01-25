@@ -62,6 +62,7 @@ const TextField = React.forwardRef((props, ref) => {
         }}
         onBlur={() => {
           setIsOnFocus(false);
+          props.onBlur && props.onBlur();
         }}
         textAlign={props.textAlign}
       />

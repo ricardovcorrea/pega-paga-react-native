@@ -22,3 +22,46 @@ export const login = async (email, password) => {
     store.dispatch(loginSuccessAction(data.data.token, data.data));
   });
 };
+
+export const checkIfEmailExists = async email => {
+  const checkIfEmailExistsRequest = {
+    Email: email,
+  };
+
+  return axios
+    .post(endpoints.checkIfEmailExists, checkIfEmailExistsRequest)
+    .then(async response => {
+      const {data} = response;
+      if (data.code !== 200) {
+        throw data;
+      }
+    });
+};
+
+export const createAccount = async (
+  email,
+  password,
+  confirmPassword,
+  name,
+  surname,
+) => {
+  const createAccountRequest = {
+    Email: email,
+    Password: password,
+    ConfirmPassword: confirmPassword,
+    HasAcceptedTermsAndPrivacyPolice: true,
+    User: {
+      FirstName: name,
+      Surname: surname,
+    },
+  };
+
+  return axios
+    .post(endpoints.createAccount, createAccountRequest)
+    .then(async response => {
+      const {data} = response;
+      if (data.code !== 200) {
+        throw data;
+      }
+    });
+};

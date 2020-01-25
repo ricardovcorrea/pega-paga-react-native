@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import LinearGradient from 'react-native-linear-gradient';
 
 import theme from '~/general/theme';
@@ -13,13 +13,13 @@ const BaseScreen = props => {
         colors={[theme.primary, theme.primary, theme.gradientEnd]}
         style={styles.gradientBackground}
       />
-      <ScrollView
+      <KeyboardAwareScrollView
         stickyHeaderIndices={props.stickyHeaderIndices}
         scrollEnabled={props.scrollEnabled}
         keyboardShouldPersistTaps={'handled'}
         contentContainerStyle={[styles.container, props.style]}>
         {props.children}
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </>
   );
 };

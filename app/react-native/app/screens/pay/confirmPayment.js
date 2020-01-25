@@ -77,7 +77,7 @@ const ConfirmPaymentScreen = props => {
 };
 
 ConfirmPaymentScreen.navigationOptions = ({navigation}) => ({
-  title: 'Confirmação',
+  title: 'Confirmation',
 });
 
 export default ConfirmPaymentScreen;

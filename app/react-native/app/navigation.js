@@ -12,6 +12,7 @@ import {
   ReceiveScreen,
   MenuScreen,
   ConfirmPaymentScreen,
+  CreateAccount,
 } from './screens';
 
 const defaultNavigationOptions = {
@@ -87,6 +88,7 @@ const loggedStack = createBottomTabNavigator(
 const unloggedStack = createStackNavigator(
   {
     Login: {screen: Login},
+    CreateAccount: {screen: CreateAccount},
   },
   {
     defaultNavigationOptions,

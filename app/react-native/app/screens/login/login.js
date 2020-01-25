@@ -8,6 +8,7 @@ import {loginAction} from '~/redux/generalReducer';
 import {login} from '~/services/authenticationService';
 
 import styles from './styles';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const LoginScreen = props => {
   const dispatch = useDispatch();
@@ -95,7 +96,7 @@ const LoginScreen = props => {
           </View>
 
           <View style={styles.passwordContainer}>
-            <Text style={styles.fieldLabel}>Senha</Text>
+            <Text style={styles.fieldLabel}>Password</Text>
             <TextInput
               onChangeText={text => {
                 setPassword(text);
@@ -126,6 +127,27 @@ const LoginScreen = props => {
             title={'ENTER'}
             isLoading={isLoading}
           />
+
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 30,
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate('CreateAccount');
+              }}>
+              <Text
+                style={[styles.fieldLabel, {fontSize: 25, marginBottom: 5}]}>
+                Create account
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.fieldLabel}>Forget password</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </BaseScreen>
