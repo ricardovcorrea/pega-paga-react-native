@@ -27,12 +27,12 @@ const LoginScreen = props => {
     let areValid = true;
 
     if (!email) {
-      setEmailError('Preencha este campo!');
+      setEmailError(' ');
       areValid = false;
     }
 
     if (email && !validateEmail(email)) {
-      setEmailError('Digite um email válido!');
+      setEmailError('This email is invalid!');
       areValid = false;
     }
 
@@ -93,6 +93,9 @@ const LoginScreen = props => {
               hilightOnFocus={true}
               style={styles.field}
             />
+            {emailError !== '' && (
+              <Text style={styles.fieldErrorLabel}>{emailError}</Text>
+            )}
           </View>
 
           <View style={styles.passwordContainer}>

@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     position: 'absolute',
     right: 0,
-    top: 3,
+    bottom: -20,
   },
   btnSave: {
     marginTop: 20,

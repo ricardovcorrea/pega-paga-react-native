@@ -94,7 +94,7 @@ const CreateAccountScreen = props => {
   };
 
   const createAccountButtonHandler = async () => {
-    if (isLoading || (await !inputsAreValid())) {
+    if (isLoading || !(await inputsAreValid())) {
       return;
     }
 
@@ -115,7 +115,9 @@ const CreateAccountScreen = props => {
         errorMessage = error.message;
       }
 
-      Alert.alert('Warning!', errorMessage);
+      setTimeout(() => {
+        Alert.alert('Warning!', errorMessage);
+      }, 10);
     }
   };
 

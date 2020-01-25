@@ -36,9 +36,6 @@ const MenuScreen = props => {
     <BaseScreen style={styles.baseScreenContainer}>
       <UserProfileCard user={loggedUser} />
       <View style={styles.menuContainer}>
-        <TouchableOpacity onPress={() => {}}>
-          <Text style={styles.menuItem}>Change Password</Text>
-        </TouchableOpacity>
         <View style={styles.menuDivider} />
         <TouchableOpacity onPress={openGitHub}>
           <Text style={styles.menuItem}>Project GitHub</Text>
@@ -47,6 +44,7 @@ const MenuScreen = props => {
         <TouchableOpacity onPress={logout}>
           <Text style={styles.menuItem}>Logout</Text>
         </TouchableOpacity>
+        <View style={styles.menuDivider} />
       </View>
     </BaseScreen>
   );
