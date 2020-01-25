@@ -2,22 +2,26 @@
 /* eslint-disable prettier/prettier */
 import moment from 'moment';
 import React, {useState, useEffect} from 'react';
-import {View, Text, FlatList, Dimensions} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 
 import {formatAsCurrency} from '~/general/helpers';
-import theme from '~/general/theme';
 
 import styles from './styles';
-const {height, width} = Dimensions.get('window');
 
 const TransactionsList = props => {
-  const {userId, transactions} = props;
+  const {userId} = props;
   const [formatedTransactions, setFormatedTransactions] = useState([]);
 
   useEffect(() => {
-    let formatedData = [];
+    formatTransactionsData();
+  }, [props.transactions]);
 
-    const dayEnd = moment();
+  const formatTransactionsData = () => {
+    if (!props.transactions || !props.transactions.length) {
+      return;
+    }
+
+    let formatedData = [];
 
     let todayTransactions = [];
     const todayStart = moment().startOf('day');
@@ -27,18 +31,13 @@ const TransactionsList = props => {
       .add(-1, 'd')
       .startOf('day');
 
-    let SevenDaysTransactions = [];
+    let sevenDaysTransactions = [];
     const sevenDaysStart = moment()
       .add(-7, 'd')
       .startOf('day');
 
-    let MonthTransactions = [];
-    const monthStart = moment()
-      .add(-1, 'M')
-      .startOf('day');
-
-    let MoreThanAMonthTransactions = [];
-    const moreThanAMonth = moment()
+    let allOtherTransacions = [];
+    const allOtherTransacionsStart = moment()
       .add(-10, 'Y')
       .startOf('day');
 
@@ -50,6 +49,18 @@ const TransactionsList = props => {
       transaction =>
         moment(transaction.datetime) >= yesterdayStart &&
         moment(transaction.datetime) < todayStart,
+    );
+
+    sevenDaysTransactions = props.transactions.filter(
+      transaction =>
+        moment(transaction.datetime) >= sevenDaysStart &&
+        moment(transaction.datetime) < yesterdayStart,
+    );
+
+    allOtherTransacions = props.transactions.filter(
+      transaction =>
+        moment(transaction.datetime) >= allOtherTransacionsStart &&
+        moment(transaction.datetime) < sevenDaysStart,
     );
 
     if (todayTransactions.length) {
@@ -86,184 +97,42 @@ const TransactionsList = props => {
       ];
     }
 
-    console.log(formatedData);
+    if (sevenDaysTransactions.length) {
+      formatedData.push({
+        type: 'divider',
+        props: {
+          title: 'Week',
+        },
+      });
+
+      formatedData = [
+        ...formatedData,
+        ...sevenDaysTransactions.map(transaction => ({
+          type: 'transaction',
+          transaction,
+        })),
+      ];
+    }
+
+    if (allOtherTransacions.length) {
+      formatedData.push({
+        type: 'divider',
+        props: {
+          title: 'All other',
+        },
+      });
+
+      formatedData = [
+        ...formatedData,
+        ...allOtherTransacions.map(transaction => ({
+          type: 'transaction',
+          transaction,
+        })),
+      ];
+    }
 
     setFormatedTransactions(formatedData);
-  }, []);
-
-  const testData = [
-    {
-      type: 'divider',
-      props: {
-        title: 'Today',
-      },
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'divider',
-      props: {
-        title: 'Yesterday',
-        balance: 11000,
-      },
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'divider',
-      props: {
-        title: '7 days',
-        balance: 31212,
-      },
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'divider',
-      props: {
-        title: 'Last month',
-        balance: 42132,
-      },
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-    {
-      type: 'transaction',
-      transaction: transactions[0],
-    },
-  ];
+  };
 
   const getStickyToHeaderDividerIndexList = () => {
     const indexsList = formatedTransactions
@@ -275,25 +144,7 @@ const TransactionsList = props => {
   const renderTransaction = itemToRender => {
     const {transaction} = itemToRender;
     return (
-      <View
-        style={{
-          padding: 20,
-          marginBottom: 15,
-          flexDirection: 'row',
-          marginHorizontal: 11,
-          backgroundColor: theme.secondary,
-          borderBottomRightRadius: 15,
-          borderTopLeftRadius: 15,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 5,
-          },
-          shadowOpacity: 0.34,
-          shadowRadius: 6.27,
-          elevation: 10,
-          justifyContent: 'space-between',
-        }}>
+      <View style={styles.transactionItemContainer}>
         {transaction.from.id === userId && (
           <Text>{`${transaction.to.firstName} ${transaction.to.surname}`}</Text>
         )}
@@ -304,7 +155,7 @@ const TransactionsList = props => {
           transaction.datetime,
         ).format('HH:MM')} `}</Text>
 
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles.transactionItemAmountContainer}>
           {transaction.from.id === userId && <Text>-</Text>}
           {transaction.to.id === userId && <Text>+</Text>}
           <Text>{formatAsCurrency(transaction.amount / 100)}</Text>
@@ -317,20 +168,11 @@ const TransactionsList = props => {
     const dividerProps = itemToRender.props;
 
     return (
-      <View
-        style={{
-          padding: 20,
-          marginBottom: 15,
-          flexDirection: 'row',
-          backgroundColor: theme.secondary,
-          borderBottomRightRadius: 15,
-          borderTopLeftRadius: 15,
-          justifyContent: 'space-between',
-        }}>
-        <Text style={{color: theme.primary, fontSize: 17, fontWeight: '600'}}>
+      <View style={styles.transactionItemDivider}>
+        <Text style={styles.transactionItemDividerText}>
           {dividerProps.title}
         </Text>
-        <Text style={{color: theme.primary, fontSize: 17, fontWeight: '600'}}>
+        <Text style={styles.transactionItemDividerText}>
           {dividerProps.balance && formatAsCurrency(dividerProps.balance / 100)}
         </Text>
       </View>
@@ -350,12 +192,8 @@ const TransactionsList = props => {
   return (
     <FlatList
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{marginBottom: 20}}
-      style={{
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.1)',
-        borderTopLeftRadius: 15,
-      }}
+      contentContainerStyle={styles.transactionListContainer}
+      style={styles.transactionList}
       data={formatedTransactions}
       keyExtractor={(transaction, index) => index.toString()}
       stickyHeaderIndices={getStickyToHeaderDividerIndexList()}

@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
   },
+  spacer: {
+    height: 30,
+  },
 });
 
 export default styles;

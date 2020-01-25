@@ -32,6 +32,49 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: theme.secondary,
   },
+  transactionList: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    borderTopLeftRadius: 15,
+  },
+  transactionListContainer: {
+    marginBottom: 20,
+  },
+  transactionItemContainer: {
+    padding: 20,
+    marginBottom: 15,
+    flexDirection: 'row',
+    marginHorizontal: 11,
+    backgroundColor: theme.secondary,
+    borderBottomRightRadius: 15,
+    borderTopLeftRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+    elevation: 10,
+    justifyContent: 'space-between',
+  },
+  transactionItemAmountContainer: {
+    flexDirection: 'row',
+  },
+  transactionItemDivider: {
+    padding: 20,
+    marginBottom: 15,
+    flexDirection: 'row',
+    backgroundColor: theme.secondary,
+    borderBottomRightRadius: 15,
+    borderTopLeftRadius: 15,
+    justifyContent: 'space-between',
+  },
+  transactionItemDividerText: {
+    color: theme.primary,
+    fontSize: 17,
+    fontWeight: '600',
+  },
 });
 
 export default styles;

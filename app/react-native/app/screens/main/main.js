@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import React, {useEffect} from 'react';
-import {Alert, View, Text} from 'react-native';
+import {Alert, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {
@@ -44,7 +44,7 @@ const MainScreen = props => {
   return (
     <BaseScreen style={styles.baseScreenContainer} scrollEnabled={false}>
       <BigMoney title={'Balance'} value={loggedUser.balance} />
-      <View style={{height: 30}} />
+      <View style={styles.spacer} />
       <TransactionsList
         userId={loggedUser.id}
         transactions={loggedUser.transactions}
