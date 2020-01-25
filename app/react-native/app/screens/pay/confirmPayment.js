@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
 import {TouchableOpacity, ActivityIndicator, Text, Alert} from 'react-native';
+import {useSelector} from 'react-redux';
 
 import {BaseScreen, UserProfileCard, BigMoney} from '~/components';
+import {sendMessage} from '~/general/socket';
 import theme from '~/general/theme';
 import {pay} from '~/services/transactionService';
 import {refreshLoggedUserInfo} from '~/services/userService';
@@ -14,6 +16,8 @@ const ConfirmPaymentScreen = props => {
   const [amountToPay, setAmountToPay] = useState(0);
 
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
+  const loggedUser = useSelector(state => state.general.user);
 
   useEffect(() => {
     getRouteParameters();
@@ -32,6 +36,8 @@ const ConfirmPaymentScreen = props => {
       setIsProcessingPayment(true);
 
       await pay(userInfo.id, amountToPay);
+      sendMessage(userInfo.id, {type: 'pay', from: loggedUser});
+
       await refreshLoggedUserInfo();
 
       setIsProcessingPayment(false);

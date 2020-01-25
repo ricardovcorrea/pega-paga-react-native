@@ -35,8 +35,6 @@ const MenuScreen = props => {
 
   return (
     <BaseScreen style={styles.baseScreenContainer}>
-      <UserProfileCard user={loggedUser} />
-
       <View style={styles.menuContainer}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.menuItem}>Change Password</Text>

@@ -1,5 +1,6 @@
 using System.Text;
 using Api.Configurations;
+using Api.Controllers;
 using Api.Domain;
 using Api.Domain.Interfaces;
 using Api.Infrastructure;
@@ -71,6 +72,8 @@ namespace Api
             });
 
             services.AddCors();
+
+            services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -90,7 +93,9 @@ namespace Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalR>("/hub");
             });
+
         }
     }
 }

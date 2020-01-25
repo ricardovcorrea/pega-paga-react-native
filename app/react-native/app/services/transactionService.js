@@ -1,8 +1,8 @@
 /* eslint-disable radix */
 import axios from 'axios';
 
-import {endpoints} from '../general/constants';
-import {store} from '../redux/store';
+import {endpoints} from '~/general/constants';
+import {store} from '~/redux/store';
 
 export const pay = async (to, amount) => {
   const {general} = store.getState();

@@ -1,4 +1,4 @@
-const baseUrl = 'http://49c3d089.ngrok.io';
+export const baseUrl = 'http://49c3d089.ngrok.io';
 
 export const endpoints = {
   login: `${baseUrl}/user/login`,

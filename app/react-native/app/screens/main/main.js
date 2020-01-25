@@ -4,7 +4,13 @@ import React, {useEffect} from 'react';
 import {Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {BaseScreen, BigMoney, NavBarLogo} from '~/components/index';
+import {
+  BaseScreen,
+  BigMoney,
+  NavBarLogo,
+  UserProfileCard,
+} from '~/components/index';
+import {initializeSocket} from '~/general/socket';
 import {logoutAction} from '~/redux/generalReducer';
 
 import styles from './styles';
@@ -15,6 +21,7 @@ const MainScreen = props => {
 
   useEffect(() => {
     props.navigation.setParams({logout});
+    initializeSocket();
   }, []);
 
   const logout = () => {
@@ -36,6 +43,7 @@ const MainScreen = props => {
 
   return (
     <BaseScreen style={styles.baseScreenContainer}>
+      <UserProfileCard user={loggedUser} style={{marginBottom: 20}} />
       <BigMoney title={'Balance'} value={loggedUser.balance} />
     </BaseScreen>
   );
