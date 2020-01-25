@@ -17,7 +17,7 @@ namespace Api.Extensions
                 IsActive = userModel.IsActive,
                 VerificationCode = userModel.VerificationCode,
 
-                Name = userModel.Name,
+                FirstName = userModel.Name,
                 Surname = userModel.Surname,
                 Document = userModel.Document,
                 HasAcceptedEmailMarketing = userModel.HasAcceptedEmailMarketing,
@@ -38,7 +38,7 @@ namespace Api.Extensions
                 IsActive = dtoUser.IsActive,
                 VerificationCode = dtoUser.VerificationCode,
 
-                Name = dtoUser.Name,
+                Name = dtoUser.FirstName,
                 Surname = dtoUser.Surname,
                 Document = dtoUser.Document,
                 ImageId = dtoUser.Portrait?.Id ?? null,

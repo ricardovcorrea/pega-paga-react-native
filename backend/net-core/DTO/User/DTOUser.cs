@@ -9,7 +9,7 @@ namespace Api.DTO
         
         public string Email { get; set; }
 
-        public string Name { get; set; }
+        public string FirstName { get; set; }
         public string Surname { get; set; }
         
         public UserType Type { get; set; }
@@ -29,6 +29,8 @@ namespace Api.DTO
 
         public string Tel { get; set; }
         public string Cel { get; set; }
+
+        public int Balance { get; set; }
 
     }
 }

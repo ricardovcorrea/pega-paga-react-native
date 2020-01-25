@@ -23,14 +23,16 @@ namespace Api.Domain
     {
         private readonly IMongoCollection<UserModel> _userCollection;
         private readonly IEmailSender _emailSender;
-        
-        public UserDomain(IWebHostEnvironment environment, IHttpContextAccessor httpContextAccessor, IGeneralSettings generalSettings, IDBSettings dbSettings, IEmailSender emailSender) : base(environment, httpContextAccessor, generalSettings)
+        private readonly ITransactionDomain _transactionDomain;
+
+        public UserDomain(IWebHostEnvironment environment, IHttpContextAccessor httpContextAccessor, IGeneralSettings generalSettings, IDBSettings dbSettings, IEmailSender emailSender, ITransactionDomain transactionDomain) : base(environment, httpContextAccessor, generalSettings)
         {
             var client = new MongoClient(dbSettings.ConnectionString);
             var database = client.GetDatabase(dbSettings.DatabaseName);
 
             _userCollection = database.GetCollection<UserModel>(dbSettings.UsersCollectionName);
             _emailSender = emailSender;
+            _transactionDomain = transactionDomain;
         }
 
 
@@ -457,6 +459,21 @@ namespace Api.Domain
             return GetUserById(_authenticatedUserId);
         }
 
+        public DTOResponse<DTOUser> GetPublicUserInfo(string userId)
+        {   var getUserByIdResult = GetUserById(userId);
+            if(getUserByIdResult.Code == 200)
+            {
+                getUserByIdResult.Data = new DTOUser()
+                {
+                    Id = getUserByIdResult.Data.Id,
+                    FirstName = getUserByIdResult.Data.FirstName,
+                    Surname = getUserByIdResult.Data.Surname,
+                    Email = getUserByIdResult.Data.Email,
+                };
+            }
+
+            return getUserByIdResult;
+        }
         #endregion
 
 
@@ -477,8 +494,13 @@ namespace Api.Domain
 
         private void LoadUserInfo(DTOUser dtoUser)
         {
-            
+            var getUserBalanceResponse = _transactionDomain.GetUserBalance(dtoUser.Id);
+            if(getUserBalanceResponse.Code == 200)
+            {
+                dtoUser.Balance = getUserBalanceResponse.Data;
+            }
         }
+
         #endregion
     }
 }

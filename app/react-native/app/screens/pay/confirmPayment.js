@@ -1,9 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
-import {TouchableOpacity, ActivityIndicator, Text} from 'react-native';
+import {TouchableOpacity, ActivityIndicator, Text, Alert} from 'react-native';
 
 import {BaseScreen, UserProfileCard, BigMoney} from '~/components';
 import theme from '~/general/theme';
+import {pay} from '~/services/transactionService';
+import {refreshLoggedUserInfo} from '~/services/userService';
+
 import styles from './styles';
 
 const ConfirmPaymentScreen = props => {
@@ -24,15 +27,27 @@ const ConfirmPaymentScreen = props => {
     setAmountToPay(value);
   };
 
-  const confirmPayment = () => {
-    setIsProcessingPayment(true);
+  const confirmPayment = async () => {
+    try {
+      setIsProcessingPayment(true);
 
-    setTimeout(() => {
+      await pay(userInfo.id, amountToPay);
+      await refreshLoggedUserInfo();
+
       setIsProcessingPayment(false);
 
       props.navigation.pop();
       props.navigation.navigate('Main');
-    }, 500);
+    } catch (error) {
+      setIsProcessingPayment(false);
+      let errorMessage = 'An error has occured, try again!';
+
+      if (error && error.message) {
+        errorMessage = error.message;
+      }
+
+      Alert.alert('Warning!', errorMessage);
+    }
   };
 
   return (

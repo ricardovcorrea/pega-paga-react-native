@@ -91,7 +91,7 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("list")]
-        public DTOResponse<List<DTOUser>> GetAllUsers ()
+        public DTOResponse<List<DTOUser>> GetAllUsers()
         {
             return _userDomain.GetAllUsers();
         }
@@ -101,6 +101,13 @@ namespace Api.Controllers
         public DTOResponse<DTOUser> GetLoggedUserInfo()
         {
             return _userDomain.GetLoggedUserInfo();
+        }
+
+        [HttpPost]
+        [Route("publicInfo")]
+        public DTOResponse<DTOUser> GetUserPublicInfo(DTOInfo getPublicUserInfo)
+        {
+            return _userDomain.GetPublicUserInfo(getPublicUserInfo.Id);
         }
     }
 }

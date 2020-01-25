@@ -1,9 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState} from 'react';
-import {View, Alert, Text} from 'react-native';
+import {View, Alert, Text, ActivityIndicator} from 'react-native';
 import {RNCamera} from 'react-native-camera';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import {BaseScreen, NavBarLogo} from '~/components';
-import {getUserInfo} from '~/services/userService';
+import theme from '~/general/theme';
+import {getPublicUserInfo} from '~/services/userService';
+
 import styles from './styles';
 
 const PayScreen = props => {
@@ -32,15 +36,14 @@ const PayScreen = props => {
         if (!value || value === '0') {
           throw 'The transaction must have a value greater than R$00,00';
         }
-
-        const userInfo = await getUserInfo(userId);
+        const userInfo = await getPublicUserInfo(userId);
         if (!userInfo) {
           throw 'User not found!';
         }
 
-        setCodeReaded(false);
-
         props.navigation.navigate('ConfirmPayment', {userInfo, value});
+
+        setCodeReaded(false);
       } catch (error) {
         Alert.alert(
           'Warning',
@@ -60,7 +63,12 @@ const PayScreen = props => {
 
   return (
     <BaseScreen scrollEnabled={false} style={styles.baseScreenContainer}>
-      <Text style={styles.readCodeText}>Position the code to read</Text>
+      {!codeReaded && (
+        <Text style={styles.readCodeText}>Position the code to read</Text>
+      )}
+      {codeReaded && (
+        <Text style={styles.readCodeText}>Getting user info ...</Text>
+      )}
       {isCameraActive && (
         <RNCamera style={styles.cameraContainer} onBarCodeRead={onBarCodeRead}>
           <View style={styles.topLeftCorner} />

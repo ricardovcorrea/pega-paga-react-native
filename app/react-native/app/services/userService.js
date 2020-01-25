@@ -1,46 +1,53 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 
 import {endpoints} from '../general/constants';
-import {loginSuccessAction, loginFailAction} from '../redux/generalReducer';
+import {setLoggedUserInfoAction} from '../redux/generalReducer';
 import {store} from '../redux/store';
 
-const fakeUsers = {
-  30: {
-    id: 30,
-    firstName: 'Ricardo',
-    surName: 'Vaz Corrêa',
-    photo:
-      'https://st2.depositphotos.com/4967775/11323/v/950/depositphotos_113235752-stock-illustration-avatar-girls-icon-vector-woman.jpg',
-  },
-  40: {
-    id: 40,
-    photo:
-      'http://funny-photo.s3.amazonaws.com/preview/navi_avatar/avatar-grinning-man-face.jpg',
-    firstName: 'Guito',
-    surName: 'Araujo',
-  },
-};
-
-export const getUserInfo = async userId => {
+export const refreshLoggedUserInfo = async () => {
   const {general} = store.getState();
-  const {baseUrl} = general;
+  const {authToken} = general;
 
-  const getUserInfoRequestUrl = `${baseUrl}${endpoints.userInfo}`;
-  const getUserInfoRequest = {
-    userId: userId,
+  const getUserInfoRequestUrl = `${endpoints.loggedUserInfo}`;
+
+  const requestOptions = {
+    headers: {Authorization: `Bearer ${authToken}`},
   };
 
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(fakeUsers[userId]);
-    }, 300);
-  });
+  return axios
+    .get(getUserInfoRequestUrl, requestOptions)
+    .then(async response => {
+      const {data} = response;
+      if (data.code === 200) {
+        store.dispatch(setLoggedUserInfoAction(response.data.data));
+      } else {
+        throw data;
+      }
+    });
+};
 
-  // return axios.post(loginRequestUrl, loginRequest).then(async (response) => {
-  //     store.dispatch(loginSuccessAction(response.data.accessToken.accessToken, response.data.user));
-  // }).catch((error) => {
-  //     store.dispatch(loginFailAction(error));
-  //     throw error;
-  // });
+export const getPublicUserInfo = async userId => {
+  const {general} = store.getState();
+  const {authToken} = general;
+
+  const getPublicUserInfoRequestUrl = `${endpoints.publicUserInfo}`;
+  const getPublicUserInfoRequest = {
+    id: userId,
+  };
+
+  const requestOptions = {
+    headers: {Authorization: `Bearer ${authToken}`},
+  };
+
+  return axios
+    .post(getPublicUserInfoRequestUrl, getPublicUserInfoRequest, requestOptions)
+    .then(async response => {
+      const {data} = response;
+
+      if (data.code !== 200) {
+        throw data;
+      }
+
+      return data.data;
+    });
 };

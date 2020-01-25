@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   textId: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '600',
     color: theme.secondary,
   },
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.secondary,
   },
-  textSurName: {
-    fontSize: 14,
+  textEmail: {
+    fontSize: 16,
     color: theme.secondary,
   },
 });

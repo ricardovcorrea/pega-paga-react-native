@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux';
 import {TextInput, Button, BaseScreen} from '~/components/index';
 import {validateEmail} from '~/general/helpers';
 import {loginAction} from '~/redux/generalReducer';
-import {login} from '~/services/authentication';
+import {login} from '~/services/authenticationService';
 
 import styles from './styles';
 
@@ -59,13 +59,13 @@ const LoginScreen = props => {
       props.navigation.navigate('Logged');
     } catch (error) {
       setIsLoading(false);
-      let errorMessage = 'Ocorreu uma falha inesperada, tente novamente!';
+      let errorMessage = 'An error has occured, try again!';
 
       if (error && error.message) {
         errorMessage = error.message;
       }
 
-      Alert.alert('Atenção!', errorMessage);
+      Alert.alert('Warning!', errorMessage);
     }
   };
 

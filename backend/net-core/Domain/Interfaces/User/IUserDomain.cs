@@ -20,5 +20,8 @@ namespace Api.Domain.Interfaces
         DTOResponse<List<DTOUser>> GetAllUsers();
 
         DTOResponse<DTOUser> GetLoggedUserInfo();
+        DTOResponse<DTOUser> GetPublicUserInfo(string userId);
+
+        
     }
 }

@@ -14,6 +14,7 @@ namespace Api.Configurations
         public string PartnersCategoryCollectionName { get; set; }
         public string FilesCollectionName { get; set; }
         public string ImagesCollectionName { get; set; }
+        public string TransactionsCollectionName { get; set; }
 
     }
 
@@ -30,5 +31,6 @@ namespace Api.Configurations
         string PartnersCategoryCollectionName { get; set; }
         string FilesCollectionName { get; set; }
         string ImagesCollectionName { get; set; }
+        string TransactionsCollectionName { get; set; }
     }
 }

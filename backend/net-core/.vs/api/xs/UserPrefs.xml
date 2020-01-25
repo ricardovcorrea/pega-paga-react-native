@@ -1,54 +1,40 @@
 ﻿<Properties StartupConfiguration="{33C5B131-4B50-4398-ADA3-44DDFE24CB9A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/User/TransactionDomain.cs">
     <Files>
-      <File FileName="Startup.cs" Line="15" Column="23" />
-      <File FileName="Program.cs" Line="16" Column="13" />
-      <File FileName="appsettings.Production.json" />
-      <File FileName="appsettings.json" Line="2" Column="1" />
-      <File FileName="Properties/launchSettings.json" Line="39" Column="2" />
-      <File FileName="appsettings.Development.json" />
+      <File FileName="Controllers/Transaction/TransactionController.cs" Line="33" Column="2" />
+      <File FileName="Domain/User/TransactionDomain.cs" Line="22" Column="68" />
+      <File FileName="Domain/User/UserDomain.cs" Line="502" Column="10" />
+      <File FileName="Extensions/Transaction/TransactionExtension.cs" Line="10" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="api" expanded="True">
             <Node name="api" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True">
-                  <Node name="Ngrok.AspNetCore" expanded="True">
-                    <Node name="Microsoft.AspNetCore.Hosting.Abstractions" expanded="True">
-                      <Node name="Microsoft.Extensions.Hosting.Abstractions" expanded="True" />
-                    </Node>
-                    <Node name="Microsoft.Extensions.Http" expanded="True">
-                      <Node name="Microsoft.Extensions.Options" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
               <Node name="Configurations" expanded="True" />
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="Transaction" expanded="True" />
+                <Node name="User" expanded="True" />
+              </Node>
               <Node name="Domain" expanded="True">
                 <Node name="Interfaces" expanded="True">
                   <Node name="General" expanded="True" />
                   <Node name="User" expanded="True" />
                 </Node>
-                <Node name="User" expanded="True" />
+                <Node name="User" expanded="True">
+                  <Node name="TransactionDomain.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="DTO" expanded="True">
-                <Node name="General" expanded="True" />
-                <Node name="User" expanded="True" />
+                <Node name="Transaction" expanded="True" />
               </Node>
-              <Node name="Enumerators" expanded="True" />
               <Node name="Extensions" expanded="True">
-                <Node name="User" expanded="True" />
+                <Node name="Transaction" expanded="True" />
               </Node>
-              <Node name="Infrastructure" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="Files" expanded="True" />
-                <Node name="User" expanded="True" />
+                <Node name="Transaction" expanded="True" />
               </Node>
-              <Node name="Properties" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -59,7 +45,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ricardovazcorrea/Projetos/Pessoal/pega-paga/backend/net-core/Domain/User/TransactionDomain.cs" relfile="Domain/User/TransactionDomain.cs" line="39" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

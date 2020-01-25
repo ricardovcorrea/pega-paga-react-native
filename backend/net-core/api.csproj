@@ -40,6 +40,10 @@
     <Folder Include="Controllers\User\" />
     <Folder Include="Models\Files\" />
     <Folder Include="Domain\Interfaces\General\" />
+    <Folder Include="Models\Transaction\" />
+    <Folder Include="Extensions\Transaction\" />
+    <Folder Include="DTO\Transaction\" />
+    <Folder Include="Controllers\Transaction\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Enumerators\PetType.cs" />

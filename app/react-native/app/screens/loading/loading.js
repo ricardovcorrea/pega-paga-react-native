@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
 
 import {BaseScreen} from '~/components/index';
 import theme from '~/general/theme';
+import {refreshLoggedUserInfo} from '~/services/userService';
 
 import styles from './styles';
 
@@ -11,8 +13,17 @@ const Loading = props => {
   const authToken = useSelector(state => state.general.authToken);
 
   useEffect(() => {
-    props.navigation.navigate(authToken ? 'Logged' : 'Unlogged');
-  }, [authToken, props.navigation]);
+    checkUserSession();
+  }, []);
+
+  const checkUserSession = async () => {
+    if (authToken) {
+      await refreshLoggedUserInfo();
+      props.navigation.navigate('Logged');
+    } else {
+      props.navigation.navigate('Unlogged');
+    }
+  };
 
   return (
     <BaseScreen style={styles.container} scroll={false}>

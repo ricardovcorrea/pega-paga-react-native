@@ -19,16 +19,6 @@ export const login = async (email, password) => {
       throw data;
     }
 
-    const user = {
-      id: data.data.id,
-      email: data.data.email,
-      firstName: data.data.name,
-      surName: data.data.surname,
-      balance: 2000,
-      photo:
-        'https://st2.depositphotos.com/4967775/11323/v/950/depositphotos_113235752-stock-illustration-avatar-girls-icon-vector-woman.jpg',
-    };
-
-    store.dispatch(loginSuccessAction(data.data.token, user));
+    store.dispatch(loginSuccessAction(data.data.token, data.data));
   });
 };

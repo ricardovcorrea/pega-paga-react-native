@@ -61,6 +61,8 @@ namespace Api
 
             services.AddTransient<IUserDomain, UserDomain>();
 
+            services.AddTransient<ITransactionDomain, TransactionDomain>();
+
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IGooglePlaces, GooglePlaces>();
 
