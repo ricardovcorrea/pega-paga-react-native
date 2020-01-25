@@ -96,7 +96,8 @@ namespace Api.Domain
             {
                 From = _authenticatedUserId,
                 To = to,
-                Amount = amount
+                Amount = amount,
+                Datetime = DateTime.Now
             };
 
             _transactionCollection.InsertOne(transactionModel);

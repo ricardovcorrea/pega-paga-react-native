@@ -20,7 +20,9 @@ namespace Api.Extensions
                 {
                     Id = transactionModel.To
                 },
-                Amount = transactionModel.Amount
+                Amount = transactionModel.Amount,
+                Datetime = transactionModel.Datetime
+                
             };
         }
 

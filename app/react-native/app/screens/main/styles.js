@@ -7,7 +7,9 @@ const fontSize = width / 20;
 
 const styles = StyleSheet.create({
   baseScreenContainer: {
-    padding: 30,
+    flex: 1,
+    paddingHorizontal: 15,
+    paddingTop: 20,
   },
   container: {
     flex: 1,
@@ -48,6 +50,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+  },
+  transactionsTitle: {
+    fontSize: 25,
+    color: theme.secondary,
+    marginTop: 20,
+    marginBottom: 10,
   },
 });
 

@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
 
-import {BaseScreen} from '~/components/index';
+import {BaseScreen, NavBarLogo} from '~/components/index';
 import {initializeSocket} from '~/general/socket';
 import theme from '~/general/theme';
 import {refreshLoggedUserInfo} from '~/services/userService';
@@ -37,5 +37,9 @@ const Loading = props => {
     </BaseScreen>
   );
 };
+
+Loading.navigationOptions = ({navigation}) => ({
+  headerLeft: NavBarLogo,
+});
 
 export default Loading;

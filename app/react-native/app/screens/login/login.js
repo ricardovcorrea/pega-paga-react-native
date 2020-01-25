@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, Alert} from 'react-native';
 import {useDispatch} from 'react-redux';
 
-import {TextInput, Button, BaseScreen} from '~/components/index';
+import {TextInput, Button, BaseScreen, NavBarLogo} from '~/components/index';
 import {validateEmail} from '~/general/helpers';
 import {loginAction} from '~/redux/generalReducer';
 import {login} from '~/services/authenticationService';
@@ -132,6 +132,8 @@ const LoginScreen = props => {
   );
 };
 
-LoginScreen.navigationOptions = ({navigation}) => ({});
+LoginScreen.navigationOptions = ({navigation}) => ({
+  headerLeft: NavBarLogo,
+});
 
 export default LoginScreen;

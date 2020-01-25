@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{33C5B131-4B50-4398-ADA3-44DDFE24CB9A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Extensions/Transaction/TransactionExtension.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Transaction/TransactionDomain.cs">
     <Files>
       <File FileName="Startup.cs" Line="96" Column="48" />
       <File FileName="Controllers/SignalR/SignalR.cs" Line="14" Column="2" />
-      <File FileName="Controllers/Transaction/TransactionController.cs" Line="33" Column="2" />
-      <File FileName="Domain/Transaction/TransactionDomain.cs" Line="109" Column="10" />
+      <File FileName="Controllers/Transaction/TransactionController.cs" Line="30" Column="1" />
+      <File FileName="Domain/Transaction/TransactionDomain.cs" Line="27" Column="16" />
       <File FileName="DTO/Transaction/DTOTransaction.cs" Line="9" Column="42" />
-      <File FileName="Domain/Interfaces/User/ITransactionDomain.cs" Line="11" Column="41" />
-      <File FileName="Domain/User/UserDomain.cs" Line="504" Column="58" />
+      <File FileName="Domain/Interfaces/User/ITransactionDomain.cs" Line="9" Column="54" />
+      <File FileName="Domain/User/UserDomain.cs" Line="528" Column="22" />
       <File FileName="DTO/User/DTOUser.cs" Line="21" Column="1" />
       <File FileName="Extensions/User/UserExtension.cs" Line="18" Column="1" />
-      <File FileName="Extensions/Transaction/TransactionExtension.cs" Line="14" Column="42" />
+      <File FileName="Extensions/Transaction/TransactionExtension.cs" Line="21" Column="45" />
+      <File FileName="Models/Transaction/TransactionModel.cs" Line="17" Column="47" />
+      <File FileName="Domain/BaseDomain.cs" Line="16" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,7 +28,9 @@
                 <Node name="Interfaces" expanded="True">
                   <Node name="User" expanded="True" />
                 </Node>
-                <Node name="Transaction" expanded="True" />
+                <Node name="Transaction" expanded="True">
+                  <Node name="TransactionDomain.cs" selected="True" />
+                </Node>
                 <Node name="User" expanded="True" />
               </Node>
               <Node name="DTO" expanded="True">
@@ -34,12 +38,12 @@
                 <Node name="User" expanded="True" />
               </Node>
               <Node name="Extensions" expanded="True">
-                <Node name="Transaction" expanded="True">
-                  <Node name="TransactionExtension.cs" selected="True" />
-                </Node>
+                <Node name="Transaction" expanded="True" />
                 <Node name="User" expanded="True" />
               </Node>
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Transaction" expanded="True" />
+              </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
@@ -51,7 +55,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ricardovazcorrea/Projetos/Pessoal/pega-paga/backend/net-core/Domain/Transaction/TransactionDomain.cs" relfile="Domain/Transaction/TransactionDomain.cs" line="86" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

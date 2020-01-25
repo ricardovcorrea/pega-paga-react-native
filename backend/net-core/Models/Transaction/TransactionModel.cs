@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Api.Models
@@ -11,5 +12,8 @@ namespace Api.Models
         public string From { get; set; }
         public string To { get; set; }
         public int Amount{ get; set; }
+
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime Datetime { get; set; }
     }
 }

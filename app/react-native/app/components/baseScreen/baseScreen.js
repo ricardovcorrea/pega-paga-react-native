@@ -3,6 +3,7 @@ import {ScrollView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import theme from '~/general/theme';
+
 import styles from './styles';
 
 const BaseScreen = props => {

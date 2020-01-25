@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Api.enumerators;
 
@@ -9,5 +10,6 @@ namespace Api.DTO
         public DTOUser From { get; set; }
         public DTOUser To { get; set; }
         public int Amount { get; set; }
+        public DateTime Datetime { get; set; }
     }
 }

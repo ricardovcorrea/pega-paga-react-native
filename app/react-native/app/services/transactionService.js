@@ -19,7 +19,7 @@ export const pay = async (to, amount) => {
   const requestOptions = {
     headers: {Authorization: `Bearer ${authToken}`},
   };
-  console.log(payRequest);
+
   return axios
     .post(payRequestUrl, payRequest, requestOptions)
     .then(async response => {
