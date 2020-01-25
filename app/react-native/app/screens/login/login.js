@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Alert} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useDispatch} from 'react-redux';
 
 import {TextInput, Button, BaseScreen, NavBarLogo} from '~/components/index';
@@ -8,13 +9,12 @@ import {loginAction} from '~/redux/generalReducer';
 import {login} from '~/services/authenticationService';
 
 import styles from './styles';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const LoginScreen = props => {
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState('user@gmail.com');
-  const [password, setPassword] = useState('321');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -133,19 +133,15 @@ const LoginScreen = props => {
               flex: 1,
               justifyContent: 'center',
               alignItems: 'center',
-              marginTop: 30,
+              marginTop: 25,
             }}>
             <TouchableOpacity
               onPress={() => {
                 props.navigation.navigate('CreateAccount');
               }}>
-              <Text
-                style={[styles.fieldLabel, {fontSize: 25, marginBottom: 5}]}>
+              <Text style={[styles.fieldLabel, {fontSize: 25, marginTop: 5}]}>
                 Create account
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text style={styles.fieldLabel}>Forget password</Text>
             </TouchableOpacity>
           </View>
         </View>
