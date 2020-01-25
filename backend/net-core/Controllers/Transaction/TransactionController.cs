@@ -27,7 +27,7 @@ namespace Api.Controllers
         [Route("pay")]
         public DTOResponse<bool> Pay(DTOTransaction transactionInfo)
         {
-            return _transactionDomain.Pay(transactionInfo.To, transactionInfo.Amount);
+            return _transactionDomain.Pay(transactionInfo.To.Id, transactionInfo.Amount);
         }        
     }
 }

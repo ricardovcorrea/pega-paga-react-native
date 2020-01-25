@@ -8,5 +8,6 @@ namespace Api.Domain.Interfaces
     {
         DTOResponse<int> GetUserBalance(string userId);
         DTOResponse<bool> Pay(string to, int amount);
+        DTOResponse<List<DTOTransaction>> GetUserTransactions(string userId);
     }
 }

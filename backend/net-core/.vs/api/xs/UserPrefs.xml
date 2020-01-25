@@ -1,8 +1,16 @@
 ﻿<Properties StartupConfiguration="{33C5B131-4B50-4398-ADA3-44DDFE24CB9A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/SignalR/SignalR.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Extensions/Transaction/TransactionExtension.cs">
     <Files>
-      <File FileName="Startup.cs" Line="97" Column="16" />
-      <File FileName="Controllers/SignalR/SignalR.cs" Line="7" Column="25" />
+      <File FileName="Startup.cs" Line="96" Column="48" />
+      <File FileName="Controllers/SignalR/SignalR.cs" Line="14" Column="2" />
+      <File FileName="Controllers/Transaction/TransactionController.cs" Line="33" Column="2" />
+      <File FileName="Domain/Transaction/TransactionDomain.cs" Line="109" Column="10" />
+      <File FileName="DTO/Transaction/DTOTransaction.cs" Line="9" Column="42" />
+      <File FileName="Domain/Interfaces/User/ITransactionDomain.cs" Line="11" Column="41" />
+      <File FileName="Domain/User/UserDomain.cs" Line="504" Column="58" />
+      <File FileName="DTO/User/DTOUser.cs" Line="21" Column="1" />
+      <File FileName="Extensions/User/UserExtension.cs" Line="18" Column="1" />
+      <File FileName="Extensions/Transaction/TransactionExtension.cs" Line="14" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,20 +19,27 @@
             <Node name="api" expanded="True">
               <Node name="Configurations" expanded="True" />
               <Node name="Controllers" expanded="True">
-                <Node name="SignalR" expanded="True">
-                  <Node name="SignalR.cs" selected="True" />
+                <Node name="SignalR" expanded="True" />
+                <Node name="Transaction" expanded="True" />
+              </Node>
+              <Node name="Domain" expanded="True">
+                <Node name="Interfaces" expanded="True">
+                  <Node name="User" expanded="True" />
                 </Node>
                 <Node name="Transaction" expanded="True" />
+                <Node name="User" expanded="True" />
               </Node>
               <Node name="DTO" expanded="True">
                 <Node name="Transaction" expanded="True" />
+                <Node name="User" expanded="True" />
               </Node>
               <Node name="Extensions" expanded="True">
-                <Node name="Transaction" expanded="True" />
+                <Node name="Transaction" expanded="True">
+                  <Node name="TransactionExtension.cs" selected="True" />
+                </Node>
+                <Node name="User" expanded="True" />
               </Node>
-              <Node name="Models" expanded="True">
-                <Node name="Transaction" expanded="True" />
-              </Node>
+              <Node name="Models" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>

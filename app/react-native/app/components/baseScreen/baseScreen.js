@@ -13,6 +13,7 @@ const BaseScreen = props => {
         style={styles.gradientBackground}
       />
       <ScrollView
+        stickyHeaderIndices={props.stickyHeaderIndices}
         scrollEnabled={props.scrollEnabled}
         keyboardShouldPersistTaps={'handled'}
         contentContainerStyle={[styles.container, props.style]}>

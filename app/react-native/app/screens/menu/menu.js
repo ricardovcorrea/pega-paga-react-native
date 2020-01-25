@@ -2,15 +2,13 @@ import React from 'react';
 import {View, TouchableOpacity, Alert, Text, Linking} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {BaseScreen, UserProfileCard, NavBarLogo} from '~/components/index';
+import {BaseScreen, NavBarLogo} from '~/components/index';
 import {logoutAction} from '~/redux/generalReducer';
 
 import styles from './styles';
 
 const MenuScreen = props => {
   const dispatch = useDispatch();
-
-  const loggedUser = useSelector(state => state.general.user);
 
   const logout = () => {
     Alert.alert('Warning', 'Are you sure you want to leave?', [

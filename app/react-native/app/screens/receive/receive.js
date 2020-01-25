@@ -42,9 +42,9 @@ const ReceiveScreen = props => {
       await refreshLoggedUserInfo();
       setTimeout(() => {
         setPaymentReceivedFromUser(payload.from);
+        setQrCode(loggedUser.id);
+        setAmountToReceive(0);
         setTimeout(() => {
-          setQrCode(loggedUser.id);
-          setAmountToReceive(0);
           setIsReceivingPayment(false);
           setPaymentReceivedFromUser(null);
         }, 1000);

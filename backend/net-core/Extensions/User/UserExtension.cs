@@ -14,17 +14,10 @@ namespace Api.Extensions
                 Id = userModel.Id,
 
                 Email = userModel.Email,
-                IsActive = userModel.IsActive,
                 VerificationCode = userModel.VerificationCode,
 
                 FirstName = userModel.Name,
                 Surname = userModel.Surname,
-                Document = userModel.Document,
-                HasAcceptedEmailMarketing = userModel.HasAcceptedEmailMarketing,
-
-                Type = (UserType)userModel.Type,
-
-                AccessLevel = (UserAccessLevel)userModel.AccessLevel
             };
         }
 
@@ -35,18 +28,10 @@ namespace Api.Extensions
                 Id = dtoUser.Id,
 
                 Email = dtoUser.Email,
-                IsActive = dtoUser.IsActive,
                 VerificationCode = dtoUser.VerificationCode,
 
                 Name = dtoUser.FirstName,
                 Surname = dtoUser.Surname,
-                Document = dtoUser.Document,
-                ImageId = dtoUser.Portrait?.Id ?? null,
-                HasAcceptedEmailMarketing = dtoUser.HasAcceptedEmailMarketing,
-
-                Type = (int)dtoUser.Type,
-
-                AccessLevel = (int)dtoUser.AccessLevel
             };
         }
     }

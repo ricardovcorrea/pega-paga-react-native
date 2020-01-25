@@ -31,8 +31,7 @@ namespace Api.Domain
 
             _transactionCollection = database.GetCollection<TransactionModel>(dbSettings.TransactionsCollectionName);
         }
-
-
+       
         #region Publics
         public DTOResponse<int> GetUserBalance(string userId)
         {
@@ -77,17 +76,20 @@ namespace Api.Domain
                 };
             }
 
+            var userBalance = 0;
             var getUserBalanceResponse = GetUserBalance(_authenticatedUserId);
             if(getUserBalanceResponse.Code == 200)
             {
-                if(getUserBalanceResponse.Data - amount < 0 && _authenticatedUserId != "5e250e5c7b49b3080f3c5d92")
+                userBalance = getUserBalanceResponse.Data;
+            }
+
+            if (userBalance - amount < 0 && _authenticatedUserId != "5e250e5c7b49b3080f3c5d92")
+            {
+                return new DTOResponse<bool>()
                 {
-                    return new DTOResponse<bool>()
-                    {
-                        Code = 400,
-                        Message = "You dont have this amount to transfer!"
-                    };
-                }
+                    Code = 400,
+                    Message = "You dont have this amount to transfer!"
+                };
             }
 
             var transactionModel = new TransactionModel()
@@ -105,12 +107,16 @@ namespace Api.Domain
                 Data = true
             };
         }
-        #endregion
 
-
-        #region Privates
-
-
+        public DTOResponse<List<DTOTransaction>> GetUserTransactions(string userId)
+        {
+            var foundUserTransactions = _transactionCollection.Find<TransactionModel>(transaction => transaction.From == userId || transaction.To == userId).SortByDescending(transaction => transaction.Id).ToList();
+            return new DTOResponse<List<DTOTransaction>>()
+            {
+                Code = 200,
+                Data = foundUserTransactions.Select(transactionModel => transactionModel.ToDTO()).ToList()
+            };  
+        }
         #endregion
     }
 }

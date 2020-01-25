@@ -6,8 +6,8 @@ namespace Api.DTO
     public class DTOTransaction
     {
         public string Id { get; set; }
-        public string From { get; set; }
-        public string To { get; set; }
+        public DTOUser From { get; set; }
+        public DTOUser To { get; set; }
         public int Amount { get; set; }
     }
 }

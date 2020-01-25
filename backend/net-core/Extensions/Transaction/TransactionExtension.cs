@@ -7,14 +7,20 @@ namespace Api.Extensions
 {
     public static class TransactionExtension
     {
-        public static DTOTransaction ToDTO(this TransactionModel transactionModal)
+        public static DTOTransaction ToDTO(this TransactionModel transactionModel)
         {
             return new DTOTransaction()
             {
-                Id = transactionModal.Id,
-                From = transactionModal.From,
-                To = transactionModal.To,
-                Amount = transactionModal.Amount
+                Id = transactionModel.Id,
+                From = new DTOUser()
+                {
+                    Id = transactionModel.From  
+                },
+                To = new DTOUser()
+                {
+                    Id = transactionModel.To
+                },
+                Amount = transactionModel.Amount
             };
         }
 
@@ -23,8 +29,8 @@ namespace Api.Extensions
             return new TransactionModel()
             {
                 Id = dtoTransaction.Id,
-                From = dtoTransaction.From,
-                To = dtoTransaction.To,
+                From = dtoTransaction.From.Id,
+                To = dtoTransaction.To.Id,
                 Amount = dtoTransaction.Amount
             };
         }

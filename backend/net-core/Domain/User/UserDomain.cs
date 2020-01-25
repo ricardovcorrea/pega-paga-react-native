@@ -138,7 +138,6 @@ namespace Api.Domain
             }
 
             createUserInfo.User.Email = createUserInfo.Email;
-            createUserInfo.User.AccessLevel = UserAccessLevel.Normal;
 
             var userModel = createUserInfo.User.ToModel();
 
@@ -460,19 +459,28 @@ namespace Api.Domain
         }
 
         public DTOResponse<DTOUser> GetPublicUserInfo(string userId)
-        {   var getUserByIdResult = GetUserById(userId);
-            if(getUserByIdResult.Code == 200)
+        {
+            var foundUserModel = _userCollection.Find<UserModel>(user => user.Id == userId).FirstOrDefault();
+
+            if (foundUserModel == null)
             {
-                getUserByIdResult.Data = new DTOUser()
+                return new DTOResponse<DTOUser>()
                 {
-                    Id = getUserByIdResult.Data.Id,
-                    FirstName = getUserByIdResult.Data.FirstName,
-                    Surname = getUserByIdResult.Data.Surname,
-                    Email = getUserByIdResult.Data.Email,
+                    Code = 400
                 };
             }
 
-            return getUserByIdResult;
+            return new DTOResponse<DTOUser>()
+            {
+                Code = 200,
+                Data = new DTOUser()
+                {
+                    Id = foundUserModel.Id,
+                    FirstName = foundUserModel.Name,
+                    Surname = foundUserModel.Surname,
+                    Email = foundUserModel.Email,
+                }
+            };
         }
         #endregion
 
@@ -499,6 +507,28 @@ namespace Api.Domain
             {
                 dtoUser.Balance = getUserBalanceResponse.Data;
             }
+
+            var getUserTransactionsResult = _transactionDomain.GetUserTransactions(dtoUser.Id);
+            if (getUserTransactionsResult.Code == 200)
+            {
+                dtoUser.Transactions = getUserTransactionsResult.Data;
+
+                foreach (var transaction in dtoUser.Transactions)
+                {
+                    var getFromUserPublicInfoResponse = GetPublicUserInfo(transaction.From.Id);
+                    if (getFromUserPublicInfoResponse.Code == 200)
+                    {
+                        transaction.From = getFromUserPublicInfoResponse.Data;
+                    }
+
+                    var getToUserPublicInfoResponse = GetPublicUserInfo(transaction.To.Id);
+                    if (getToUserPublicInfoResponse.Code == 200)
+                    {
+                        transaction.To = getToUserPublicInfoResponse.Data;
+                    }
+                }
+            }
+
         }
 
         #endregion

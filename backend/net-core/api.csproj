@@ -45,6 +45,7 @@
     <Folder Include="DTO\Transaction\" />
     <Folder Include="Controllers\Transaction\" />
     <Folder Include="Controllers\SignalR\" />
+    <Folder Include="Domain\Transaction\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Enumerators\PetType.cs" />
