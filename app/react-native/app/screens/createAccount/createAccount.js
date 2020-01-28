@@ -76,7 +76,7 @@ const CreateAccountScreen = props => {
     }
 
     if (password && password !== confirmPassword) {
-      setPasswordError('error');
+      setConfirmPasswordError('error');
       areValid = false;
     }
 

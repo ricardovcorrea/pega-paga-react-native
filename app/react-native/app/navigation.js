@@ -78,10 +78,6 @@ const loggedStack = createBottomTabNavigator(
   {
     mode: 'modal',
     tabBarComponent: TabBar,
-    tabBarOptions: {
-      activeTintColor: theme.primary,
-      inactiveTintColor: '#bdbdd1',
-    },
   },
 );
 

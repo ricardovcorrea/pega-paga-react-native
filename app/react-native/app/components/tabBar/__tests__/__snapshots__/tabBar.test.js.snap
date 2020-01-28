@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab Bar Component Tests should render itself 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "borderTopColor": "#e5e5e5",
+      "borderTopWidth": 1,
+      "elevation": 2,
+      "flexDirection": "row",
+      "height": 52,
+      "marginBottom": 15,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+      }
+    }
+    testID="tab-bar-button"
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#21cf63",
+            "fontSize": 30,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 11,
+            "marginTop": 4,
+          },
+          Object {
+            "color": "#21cf63",
+          },
+        ]
+      }
+    >
+      Home
+    </Text>
+  </View>
+</View>
+`;

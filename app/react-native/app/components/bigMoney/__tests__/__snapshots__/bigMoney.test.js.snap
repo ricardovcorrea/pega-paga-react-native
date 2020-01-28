@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Big Money Component Tests should render itself with title and formated value 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 20,
+        "fontWeight": "600",
+        "marginBottom": 15,
+      }
+    }
+  >
+    Title
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 90,
+        "fontWeight": "900",
+      }
+    }
+  >
+    R$ 30.00
+  </Text>
+</View>
+`;
